@@ -17,7 +17,6 @@ env:
     - DB=mysql
 
 before_script:
-  - mkdir -p $LOGS_DIR
   - if [[ "$DB" == "mysql" ]]; then mysql -e "CREATE DATABASE sulu;"; fi
   - if [[ "$DB" == "pgsql" ]]; then psql -c "CREATE DATABASE sulu;" -U postgres; fi
   - cp app/Resources/pages/default.xml.dist app/Resources/pages/default.xml
