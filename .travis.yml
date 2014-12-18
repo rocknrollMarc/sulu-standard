@@ -12,8 +12,8 @@ php:
 
 env:
   global:
-    - secure: "Uft74EqqtZ2NOYECsx8bq8RaN8L40S12X9rFqsVLrbV2E8ru8ijL4mZNcRYYSSG5L6jR27wvlalTbzxBRWT1LnAt15AreCmuq/m9tj3yyXMNkX6dASVpw/qxTlgeAwGP26iFe4zgKubmyQXZroK8iIN4/HimRwYaADSeQ4j8QyQ="
-    - secure: "UmFds85SDbGAGgayw75iXegyElb68BVjT+rwwaUDtokreSgUytnj6+puFcomYtE5SiHmhZbcDZs2f4jBh0GlmDCULBIsj2i3B+qUdt0S3k6yNUhqEM6FoEmrFeiD0hK3PUW267LJEhZjgQfjkAhRGoF6RpLQFrvZFi9ldbS207c="
+    - secure: LKZyCesV6xIIhlUvBGu4ZvZ8Iqy8t+TsKuu2LOS3FBoieKb3kt9/q1q/jCFjw9bMsWS01C4A5IgsceFO5+eHARUIE7gHdxbz6JJPQE5DiM/832mAWmLyBC6W1o9/S4zmkA1pWT6usvrWC5fH303ZE2bjw/f5agJBQq9ontYHbEc=
+    - secure: SI082ZTIAS3Ykie6+WA1ZxOnMfgFvB5vwlh1Eld9yS7w8syoA6xK/+NvHLxTcIRlw4gExtBZ3WMvDsaXubvC+d2Rdyb4eEr7o63BsM1eQXr4nuL8v62YnLxGdjWGCyiSg2rYeFsXFEk5FFj8STJozGQwMx1f635VotZ93JuvoTY=
     - DB=mysql
 
 before_script:
