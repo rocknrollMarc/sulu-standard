@@ -33,7 +33,7 @@
         "massive/build-bundle": "0.2.*"
     },
     "require-dev": {
-        "sauce/sausage": "0.9.*",
+        "sauce/sausage": "0.15.*",
         "jackalope/jackalope-doctrine-dbal": "1.1.*",
         "raulfraile/ladybug-bundle": "1.0.*"
     },
