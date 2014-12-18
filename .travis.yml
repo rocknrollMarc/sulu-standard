@@ -1,5 +1,8 @@
 sudo: false
 
+addons:
+  sauce_connect: true
+
 language: php
 
 php:
@@ -23,12 +26,12 @@ before_script:
   - cp app/Resources/pages/overview.xml.dist app/Resources/pages/overview.xml
   - cp app/Resources/snippets/default.xml.dist app/Resources/snippets/default.xml
   - cp app/Resources/webspaces/sulu.io.xml.dist app/Resources/webspaces/sulu.io.xml
-  - ./tests/sauce/connect_setup.sh
+#  - ./tests/sauce/connect_setup.sh
   - composer self-update
   - composer update --prefer-dist --no-interaction
   - php app/console sulu:build dev --no-interaction
   - php app/console server:run 0.0.0.0:8000 --router=app/config/router_admin.php --env prod > /dev/null 2>&1 &
-  - ./tests/sauce/connect_block.sh
+#  - ./tests/sauce/connect_block.sh
 
 script: bin/paratest -p 2 -f
 
