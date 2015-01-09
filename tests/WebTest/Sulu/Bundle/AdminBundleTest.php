@@ -11,7 +11,6 @@
 namespace WebTest\Sulu\Bundle;
 
 use Sauce\Sausage\WebDriverTestCase;
-use Sauce\Sausage\SauceTestCommon;
 
 class AdminBundleTest extends WebDriverTestCase
 {
@@ -38,43 +37,6 @@ class AdminBundleTest extends WebDriverTestCase
             'local' => true,
         ),*/
     );
-
-    // TODO make abstract TestCase class
-    public function setupSpecificBrowser($params)
-    {
-
-        if (getenv('SAUCE_USERNAME') && getenv('SAUCE_ACCESS_KEY')) {
-            define(SAUCE_USERNAME, getenv('SAUCE_USERNAME'));
-            define(SAUCE_ACCESS_KEY, getenv('SAUCE_ACCESS_KEY'));
-        }
-
-        SauceTestCommon::RequireSauceConfig();
-
-        if (isset($params['host'])) {
-            $params['host'] = sprintf($params['host'], SAUCE_USERNAME, SAUCE_ACCESS_KEY);
-        }
-
-
-        if (getenv('TRAVIS_JOB_NUMBER')) {
-
-            $capabilities = array();
-
-            $capabilities['tunnel-identifier'] = getenv('TRAVIS_JOB_NUMBER');
-            $capabilities['build'] = getenv('TRAVIS_BUILD_NUMBER');
-            $capabilities['tags'] = array('Travis-CI', 'PHP ' . phpversion());
-
-            if (isset($params['desiredCapabilities'])) {
-                $params['desiredCapabilities'] = array_merge(
-                    $params['desiredCapabilities'],
-                    $capabilities
-                );
-            } else {
-                $params['desiredCapabilities'] = $capabilities;
-            }
-        }
-
-        parent::setupSpecificBrowser($params);
-    }
 
     public function setUpPage()
     {
@@ -108,5 +70,4 @@ class AdminBundleTest extends WebDriverTestCase
 
         $this->spinAssert("Header never showed up!", $header);
     }
-
 }
