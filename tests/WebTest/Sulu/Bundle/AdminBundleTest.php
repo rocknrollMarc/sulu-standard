@@ -38,6 +38,30 @@ class AdminBundleTest extends WebDriverTestCase
         ),*/
     );
 
+    // TODO make abstract TestCase class
+    public function setupSpecificBrowser($params)
+    {
+
+        if (getenv('TRAVIS_JOB_NUMBER')) {
+
+            $capabilities = array();
+
+            $capabilities['tunnel-identifier'] = getenv('TRAVIS_JOB_NUMBER');
+            $capabilities['tags'] = array('Travis-CI', 'PHP ' . phpversion());
+
+            if (isset($params['desiredCapabilities'])) {
+                $params['desiredCapabilities'] = array_merge(
+                    $params['desiredCapabilities'],
+                    $capabilities
+                );
+            } else {
+                $params['desiredCapabilities'] = $capabilities;
+            }
+        }
+
+        parent::setupSpecificBrowser($params);
+    }
+
     public function setUpPage()
     {
         $this->url('http://localhost:8000/admin/login');
