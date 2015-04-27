@@ -6,7 +6,10 @@ framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
     secret:          "%secret%"
-    form:            ~
+    form:
+        enabled: true
+        csrf_protection:
+            enabled: false
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
@@ -115,7 +118,12 @@ sulu_core:
             default_type:
                 snippet: "default"
                 page: "default"
+                home: "overview"
             paths:
+                app_:
+                    path: "%kernel.root_dir%/Resources/pages"
+                    internal: false
+                    type: "home"
                 app_page:
                     path: "%kernel.root_dir%/Resources/pages"
                     internal: false
@@ -158,3 +166,15 @@ sulu_http_cache:
     proxy_client:
         symfony:
             enabled: true
+
+sulu_document_manager:
+    mapping:
+        page: 
+            class: Sulu\Bundle\ContentBundle\Document\PageDocument
+            phpcr_type: sulu:page
+        home: 
+            class: Sulu\Bundle\ContentBundle\Document\HomeDocument
+            phpcr_type: sulu:home
+        snippet: 
+            class: Sulu\Bundle\SnippetBundle\Document\SnippetDocument
+            phpcr_type: sulu:snippet

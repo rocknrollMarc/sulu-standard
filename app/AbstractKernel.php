@@ -61,6 +61,9 @@ abstract class AbstractKernel extends SuluKernel
 
             // tools
             new Massive\Bundle\BuildBundle\MassiveBuildBundle(),
+
+            new Sulu\Bundle\DocumentManagerBundle\SuluDocumentManagerBundle(),
+            new DTL\Bundle\PhpcrMigrations\PhpcrMigrationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
