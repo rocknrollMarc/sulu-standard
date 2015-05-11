@@ -91,3 +91,7 @@ sulu_resource_api:
 client_website:
     type: portal
     resource: "@ClientWebsiteBundle/Resources/config/routing.yml"
+
+sulu_search:
+    resource: "@SuluSearchBundle/Resources/config/routing.yml"
+    prefix: /admin/search
